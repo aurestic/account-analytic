@@ -12,5 +12,7 @@ class AccountMoveLine(models.Model):
         values_list = super(AccountMoveLine, self)._prepare_analytic_line()
         for index, move_line in enumerate(self):
             values = values_list[index]
-            values["other_partner_id"] = move_line.move_id.partner_id.commercial_partner_id.id
+            values[
+                "other_partner_id"
+            ] = move_line.move_id.partner_id.commercial_partner_id.id
         return values_list
